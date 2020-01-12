@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body
+		{
+			background-color: yellow ;
+		}
+		h1
+		{
+			text-align:center;
+			color:red;
+			font-size:80px;
+		}
+		#you
+		{
+			font-family: sans-serif;
+			text-align: center;
+			color : red;
+			font-size: 40px;
+		}
+		#user_message
+		{
+			font-family: sans-serif;
+			text-align: center;
+			color : red;
+			font-size: 40px;
+		}
+		h3
+		{
+			text-align: center;
+			color: red;
+			font-size:40px;
+		}
+		table,th,td
+		{
+			text-align: center;
+			color:blue;
+			font-size:40px;
+			border:1px solid black;
+		}
+		#chatbot
+		{
+			background-color: rgb(0,230,230);
+			font-size:40px;
+			color:red;
+		}
+		#user
+		{
+			background-color: rgb(250,0,0);
+			font-size:40px;
+			color:white;
+		}
+	</style>
+	<title>TalkBot</title>
+</head>
+<body>
+	<h1>Heyyy there I am TypeBot!....Let's get talking</h1>
+	<div id="you">
+	<form method='POST'>
+		Type something:<br>
+		<input type="text" name="type_something" id="user_message">
+		<input type='submit' value='Send' onclick='message_process()'>
+	</form>
+	<br>
+	<br>
+	<table style="width:100%;">
+		<tr>
+			<th id="chatbot">BOT</th>
+			<th id="user">YOU</th>
+		</tr>
+		{% for talk in chat %}
+		<tr>
+			<td id="chatbot">{{ talk.bot }}</td>
+			<td id="user">{{ talk.you }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+</body>
+</html>
